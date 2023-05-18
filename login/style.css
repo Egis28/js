@@ -1,0 +1,24 @@
+input,button{
+    padding: 5px;
+    display: block;
+    margin-top: 20px;
+}
+
+input {
+    
+    width: 20%;
+}
+
+.btn {
+
+    background-color: yellow;
+    color: brown;
+    padding: 5px 10px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: greenyellow;
+    cursor: pointer
+}
+
