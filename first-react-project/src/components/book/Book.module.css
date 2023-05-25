@@ -1,0 +1,9 @@
+.oneBook{
+    border: 1px blue dotted;
+    width: 300px;
+    padding: 1rem;
+}
+
+.oneBookImg{
+    max-width: 100%;
+}
