@@ -1,0 +1,29 @@
+.products_list{
+    border: 1px red solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img{
+    max-width: 80%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.card{
+    border: 1px solid black;
+    width: 25%;
+    height: 500px;
+    overflow: hidden;
+    text-align: center;
+    margin: 10px;
+    background-color: aliceblue;
+    gap: 10px;
+}
+
+.img:hover {
+    transform: scale(1.5);
+    overflow: hidden;
+
+}
