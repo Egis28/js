@@ -31,9 +31,10 @@ useEffect(() => {
 
   return (
     <div>
-
-        <Product_card products={products}/>
         <Category_list products={products}/>
+        <Product_card products={products}/>
+       
+
     </div>
   )
 }
