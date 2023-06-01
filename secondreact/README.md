@@ -68,3 +68,93 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+app.js
+
+import React, { useState } from 'react'
+import Product_list from './components/products_list/Products_list'
+import CategoryFilter from './CategoryFilter';
+
+
+const App = () => {
+
+  const App = () => {
+    const [selectedCategory, setSelectedCategory] = useState('All');
+  
+    const handleCategoryChange = (category) => {
+      setSelectedCategory(category);
+    };
+  
+    // Render products based on the selected category
+    const renderProducts = () => {
+      // Replace this with your actual product data retrieval logic
+      const products = [
+        { id: 1, name: 'Product 1', category: "Men's Clothing" },
+        { id: 2, name: 'Product 2', category: 'Jewelry' },
+        { id: 3, name: 'Product 3', category: 'Electronics' },
+        { id: 4, name: 'Product 4', category: "Women's Clothing" },
+        { id: 5, name: 'Product 5', category: 'All' },
+      ];
+  
+      if (selectedCategory === 'All') {
+        return products.map((product) => (
+          <div key={product.id}>{product.name}</div>
+        ));
+      } else {
+        const filteredProducts = products.filter(
+          (product) => product.category === selectedCategory
+        );
+        return filteredProducts.map((product) => (
+          <div key={product.id}>{product.name}</div>
+        ));
+      }
+    };
+
+
+  return (
+    <div>
+    
+      <Product_list/>
+
+      <CategoryFilter
+        selectedCategory={selectedCategory}
+        onCategoryChange={handleCategoryChange}
+      />
+      {renderProducts()}
+    
+    </div>
+  )
+}
+}
+
+    
+export default App;
+
+
+CategoryFilter.jsx
+
+import React from 'react';
+
+const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
+  const categories = ['Men\'s Clothing', 'Jewelry', 'Electronics', 'Women\'s Clothing', 'All'];
+
+  return (
+    <div>
+      <label htmlFor="category">Filter by category: </label>
+      <select
+        id="category"
+        value={selectedCategory}
+        onChange={(e) => onCategoryChange(e.target.value)}
+      >
+        {categories.map((category, index) => (
+          <option key={index} value={category}>{category}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+export default CategoryFilter;
+
+
